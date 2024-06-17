@@ -1,0 +1,20 @@
+# build pluto firmware
+name: Build
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - main
+      - develop
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Install dependencies
+          run: |
+              apt -y install git build-essential fakeroot libncurses5-dev libssl-dev ccache 
+              apt -y install dfu-util u-boot-tools device-tree-compiler libssl1.0-dev mtools
+              apt -y install bc python cpio zip unzip rsync file wget
