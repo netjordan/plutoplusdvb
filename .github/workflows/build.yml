@@ -3,7 +3,8 @@ name: Build
 on:
   push:
     branches:
-      - master
+      - main
+      - develop
   pull_request:
     branches:
       - main
@@ -16,6 +17,6 @@ jobs:
         - uses: actions/checkout@v2
         - name: Install dependencies
           run: |
-              apt -y install git build-essential fakeroot libncurses5-dev libssl-dev ccache 
-              apt -y install dfu-util u-boot-tools device-tree-compiler libssl1.0-dev mtools
-              apt -y install bc python cpio zip unzip rsync file wget
+              sudo apt -y install git build-essential fakeroot libncurses5-dev libssl-dev ccache 
+              sudo apt -y install dfu-util u-boot-tools device-tree-compiler libssl1.0-dev mtools
+              sudo apt -y install bc python cpio zip unzip rsync file wget
